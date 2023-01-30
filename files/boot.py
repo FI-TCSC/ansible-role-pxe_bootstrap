@@ -37,8 +37,8 @@ try:
     serialport = nodesettings['serialport']
 
   print pxe_header
-  print "kernel http://" + nodesettings["kickstart_server_ip"] + "/ks/vmlinuz ks=http://" + nodesettings["kickstart_server_ip"] + "/ks/" + nodesettings["kickstart_profile"] + " edd=off ksdevice=bootif kssendmac console=" + serialport + ",115200 console=tty0 initrd=initrd.img"
-  print "initrd http://" + nodesettings["kickstart_server_ip"] + "/ks/initrd.img"
+  print "kernel http://" + nodesettings["kickstart_server_ip"] + "/ks/" + nodesettings["kickstart_kernel"] + " ks=http://" + nodesettings["kickstart_server_ip"] + "/ks/" + nodesettings["kickstart_profile"] + " edd=off ksdevice=bootif kssendmac console=" + serialport + ",115200 console=tty0 initrd=" + nodesettings["kickstart_initrd"]
+  print "initrd http://" + nodesettings["kickstart_server_ip"] + "/ks/" + nodesettings["kickstart_initrd"]
   print "boot"
 
 except Exception as e:
