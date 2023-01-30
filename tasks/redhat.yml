@@ -37,7 +37,7 @@
   when: pxe_bootstrap_upgrade_img|bool
 
 - name: create_dhcpd_config_dir
-  file: path=/etc/dhcp/dhcpd.d state=directory owner=root group=root mode="0755"
+  file: path=/etc/dhcp/dhcpd.d state=directory owner=root group=admin mode="0750"
 
 - name: copy_dhcp_pxe_option_config
   copy: src=ipxe.conf dest=/etc/dhcp/dhcpd.d/ipxe.conf owner=root group=root mode="0644"
